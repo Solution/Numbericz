@@ -60,8 +60,10 @@ $.fn.numbericz = function () {
 		} else if (keyCode == 8 || keyCode == 46) {
 			if (controlFloation($(this).val())) floatedFill = false;
 		} else if (keyCode >= 48 && keyCode <= 57) {
-			var currentValue = $(this).val().toString();
-			$(this).val(currentValue + shiftedNums.indexOf(keyCode));
+			if (shiftHitted == false) {
+				var currentValue = $(this).val().toString();
+				$(this).val(currentValue + shiftedNums.indexOf(keyCode));
+			}
 		}
 	});
 
